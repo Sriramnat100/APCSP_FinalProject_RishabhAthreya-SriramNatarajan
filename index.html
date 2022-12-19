@@ -20,7 +20,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="images/protest.png" type="image/gif" />
+      <link rel="icon" href="images/titleBackground.jpg" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
@@ -38,7 +38,7 @@
          <div class="header_main">
             <div class="mobile_menu">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div>
+                  <!-- <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div> -->
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -51,10 +51,7 @@
                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="posts.html">Posts</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link " href="blog.html">Test</a>
+                           <a class="nav-link" href="viewposts.php">Posts</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="contact.html">Contact</a>
@@ -64,13 +61,12 @@
                </nav>
             </div>
             <div class="container-fluid">
-               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <!-- <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div> -->
                <div class="menu_main">
                   <ul>
                      <li class="active"><a href="index.html">Home</a></li>
                      <li><a href="about.html">About</a></li>
-                     <li><a href="posts.html">Posts</a></li>
-                     <li><a href="blog.html">Blog</a></li>
+                     <li><a href="viewposts.php">Posts</a></li>
                      <li><a href="contact.html">Contact us</a></li>
                   </ul>
                </div>
@@ -99,72 +95,18 @@
 <!--                  </div>-->
 <!--               </div>-->
 <!--            </div>-->
-            <div class="container">
+            <div class="container" >
                <h1 class="banner_taital">Post It</h1>
                <p class="banner_text">Post It is a free to use website that allows users to connect with others about social issues in their community!</p>
-               <div class="read_bt"><a href="#">Get A Quote</a></div>
+               <div class="read_bt"><a href="createpost.php">Make a Post!</a></div>
              </div>
          </div>
          <!-- banner section end -->
       </div>
       <!-- header section end -->
-      <!-- services section start -->
-      <div class="services_section layout_padding">
-         <div class="container">
-            <h1 class="services_taital">View Posts </h1>
-            <p class="services_text">Learn about the posts in your</p>
-            <div class="services_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div><img src="images/img-1.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Create a Post</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-2.png" class="services_img"></div>
-                     <div class="btn_main active"><a href="#">View Posts</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-3.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Donate</a></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- services section end -->
-      <!-- about section start -->
-      <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <h1 class="about_taital">About Us</h1>
-                     <p class="about_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
-                     <div class="readmore_bt"><a href="#">Read More</a></div>
-                  </div>
-               </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img src="images/about-img.png" class="about_img"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- about section end -->
-      <!-- blog section start -->
-      <div class="blog_section layout_padding">
-         <div class="container">
-            <h1 class="blog_taital">See Our  Video</h1>
-            <p class="blog_text">many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which</p>
-            <div class="play_icon_main">
-               <div class="play_icon"><a href="#"><img src="images/play-icon.png"></a></div>
-            </div>
-         </div>
-      </div>
-      <!-- blog section end -->
-      <!-- client section start -->
       <div class="client_section layout_padding">
          <div class="container">
-            <h1 class="client_taital">Users</h1>
+            <h1 class="client_taital">Recent Posts</h1>
             <div class="client_section_2">
                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
@@ -230,17 +172,46 @@
             </div>
          </div>
       </div>
+      <!-- services section start -->
+      <!-- services section end -->
+      <!-- about section start -->
+      <!-- <div class="about_section layout_padding">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="about_taital_main">
+                     <h1 class="about_taital">About Us</h1>
+                     <p class="about_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
+                     <div class="readmore_bt"><a href="#">Read More</a></div>
+                  </div>
+               </div>
+               <div class="col-md-6 padding_right_0">
+                  <div><img src="images/about-img.png" class="about_img"></div>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <!-- about section end -->
+      <!-- blog section start -->
+      <!-- <div class="blog_section layout_padding">
+         <div class="container">
+            <h1 class="blog_taital">See Our  Video</h1>
+            <p class="blog_text">many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which</p>
+            <div class="play_icon_main">
+               <div class="play_icon"><a href="#"><img src="images/play-icon.png"></a></div>
+            </div>
+         </div>
+      </div> -->
+      <!-- blog section end -->
+      <!-- client section start -->
+   
       <!-- client section start -->
       <!-- choose section start -->
       <div class="choose_section layout_padding">
          <div class="container">
-            <h1 class="choose_taital">Why Choose Us</h1>
-            <p class="choose_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
-            <div class="read_bt_1"><a href="#">Read More</a></div>
-            <div class="newsletter_box">
-               <h1 class="let_text">Let Start Talk with Us</h1>
-               <div class="getquote_bt"><a href="#">Get A Quote</a></div>
-            </div>
+            <h1 class="choose_taital">Have feedback for our platform? Please contact us!</h1>
+            <p class="choose_text"></p>
+            <div class="read_bt"><a href="#">Contact Us</a></div>
          </div>
       </div>
       <!-- choose section end -->

@@ -231,7 +231,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../images/protest.png);
+    background-image: url(../images/titleBackground.jpg);
     height: auto;
     background-size: 100%;
     padding: 0px 0px 20px 0px;
@@ -318,7 +318,7 @@ button {
 }
 
 .menu_main li a {
-    color: #ffffff;
+    color: #1f1f1f;
     padding: 10px 20px;
     border-radius: 10px;
 }
@@ -358,7 +358,7 @@ button {
     width: 100%;
     float: left;
     font-size: 80px;
-    color: #ffffff;
+    color: #1f1f1f;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
@@ -371,7 +371,7 @@ button {
     width: 63%;
     margin: 0 auto;
     font-size: 16px;
-    color: #ffffff;
+    color: #1f1f1f;
     text-align: center;
 }
 
@@ -385,8 +385,8 @@ button {
     width: 100%;
     float: left;
     font-size: 16px;
-    color: #141414;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #1f1f1f;
     text-align: center;
     padding: 10px 0px;
     border-radius: 30px;
@@ -827,7 +827,6 @@ button {
     background-color: #000d10;
     color: #ffffff;
 }
-
 
 /* choose section end */
 

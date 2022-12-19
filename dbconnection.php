@@ -4,8 +4,8 @@
 
 		// DB CONFIG
 		$servername = "localhost";
-		$username = "sriramnutrag";
-		$password = "sriramnutrag123";
+		$username = "root";
+		$password = "St@rf2mily";
 	
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, "gaysp_project");
