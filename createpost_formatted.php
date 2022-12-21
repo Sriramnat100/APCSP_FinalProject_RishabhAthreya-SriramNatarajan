@@ -67,7 +67,7 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNav">
                      <ul class="navbar-nav">
-                        <li class="nav-item">
+                     <li class="nav-item">
                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
@@ -78,9 +78,9 @@
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="createpost_formatted.php">Make Post</a>
-                        </li> 
+                        </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="createpost.php">Make Post</a>
+                           <a class="nav-link" href="search_formatted.php">Search</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="contact.html">Contact</a>
@@ -93,10 +93,11 @@
                <!-- <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div> -->
                <div class="menu_main">
                   <ul>
-                     <li class="active"><a href="index.html">Home</a></li>
+                  <li class="active"><a href="index.html">Home</a></li>
                      <li><a href="about.html">About</a></li>
                      <li><a href="viewposts_formatted.php">View Posts</a></li>
                      <li><a href="createpost_formatted.php">Make Post</a></li>
+                     <li><a href="search_formatted.php">Search</a></li>
                      <li><a href="contact.html">Contact us</a></li>
                   </ul>
                </div>

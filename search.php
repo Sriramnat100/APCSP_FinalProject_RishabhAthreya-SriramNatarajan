@@ -1,22 +1,11 @@
 <div>
-	<h3>Posts</h3>
+	<div class="form-container">
+		<form action="search.php" method="GET" style="padding-top: 1%">
+			<input type="text" name="columns" placeholder="'Author', 'Title', or 'Description'">
+			<input type="text" name="query" placeholder="Query">
+			<input type="submit" value="Search" style="width: 100px">
+		</form>
 	</div>
-	<ul>
-		<li>Post</li>
-		<li>Search</li>
-	</ul>
-</nav>
-<h1 class="title">Search for Post</h1>
-<div class="form-container">
-	<form action="search.php" method="GET">
-		<select name="columns">
-			<option value="title">Title</option>
-			<option value="content">Description</option>
-			<option value="author">Author</option>
-		</select>
-		<input type="text" name="query" placeholder="Query">
-		<input type="submit" value="Search">
-	</form>
 </div>
 
 <?php 

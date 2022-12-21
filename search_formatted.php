@@ -30,38 +30,6 @@
     }
 </style>
 
-<?php
-include 'dbconnection.php';
-$connec = connectPostsDB();
-
-$sql_query = "SELECT * FROM posts";
-		$response = $connec->query($sql_query);
-
-		$posts[] = (object) array();
-
-		if ($response->num_rows > 0) {
-			$i = 0;
-			while($row = $response->fetch_assoc()) {
-				// echo "id: " . $row["movie_id"]. " - title: " . $row["title"] . " - genre: " . $row["genre"]. "<br />";
-				$post_obj = new stdClass();
-			
-				$post_obj->id = $row["post_id"];
-				$post_obj->title = $row["title"];
-				$post_obj->content = $row["content"];
-				$post_obj->author = $row["author"];
-
-				$posts[$i] = $post_obj;
-
-				$i++;
-			}
-} else
-    $posts = 0;
-
-		$connec->close();
-?>
-
-</div>
-
 <html lang="en">
    <head>
       <!-- basic -->
@@ -147,31 +115,66 @@ $sql_query = "SELECT * FROM posts";
       <!-- header section end -->
       <!-- about section start -->
       <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-                <div class="contact_taital">
-                    <h1 class="about_taital">View Posts</h1>
-            </div>
-            <div class="posts-cont">
-                <h1 style="text-align: center;"><?php echo $posts != 0 ? "" : "No posts available"; ?></h1>
-                <?php 
-                $j = 0;
-                if($posts != 0) {
-                    while($j < count($posts)) {
-                        echo "<div>";
-                        echo "<h2>{$posts[$j]->title}</h2>";
-                        echo "<h3 style=\"display: none\">{$posts[$j]->id}</h3>";
-                        echo "<h5>{$posts[$j]->content}</h5>";
-                        echo "<p>By: {$posts[$j]->author}</p>";
-                        echo "</div>";
-                        // echo "<br/>";
-    
-                        $j++;
-                    }
-                }
-                ?>
+         <div class="container">
+            <h1 class="contact_taital">Search for Post</h1>
+               <!-- <iframe style='padding-left:35%; padding-top=20%'; src="http://localhost:8080/search.php" style ="border:0px #fff none," name = "Rishabh's Frame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="50px" width="100%" allowfullscreen></iframe> -->
+               <form action="search.php" method="GET" style="padding-left:19%">
+                  <input type="text" name="columns" placeholder="'Author', 'Title', or 'Description'", style="width:300px">
+			         <input type="text" name="query" placeholder="Query", style="width:300px">
+			         <input type="submit" value="Search" style="width: 100px">
+		         </form>
          </div>
-      </div>
+            <div class="posts-cont">
+                <h1 style="text-align: center; padding-top:2%;"><?php $posts=0; echo $posts != 0 ? "" : "No posts available"; ?></h1>
+                <?php 
+                    if(count($_GET) > 0) {			
+                        include 'dbconnection.php';
+                        $connec = connectPostsDB();
+
+                        $sql_query = "SELECT * FROM posts WHERE " . $_GET["columns"] . " like '%" . $_GET["query"] . "%'";
+                        $res = $connec->query($sql_query);
+
+                        $posts_arr[] = (object) array();
+
+                        if ($res->num_rows > 0) {
+                            $i = 0;
+                            while($row = $res->fetch_assoc()) {
+                                $posts_obj = new stdClass();
+                            
+                                $posts_obj->id = $row["post_id"];
+                                $posts_obj->title = $row["title"];
+                                $posts_obj->author = $row["author"];
+
+                                $posts_arr[$i] = $posts_obj;
+
+                                $i++;
+                            }
+                        } else $posts_arr = 0;
+
+                        $connec->close();
+                            
+                        $i = 0;
+
+                        if($posts_arr != 0) {
+                            echo "<h1>Results for posts with the " . $_GET["columns"] . " of \"" . $_GET["query"] . "\"</h1>";
+                            echo "<div class='post-list-container'>";
+                            while($i < count($posts_arr)) {
+                                echo "<div class='post-card'>";
+                                echo "<h2>{$posts_arr[$i]->title}</h2>";
+                                echo "<h3 style=\"display: none\">{$posts_arr[$i]->id}</h3>";
+                                echo "<div><p><strong>Title:</strong> {$posts_arr[$i]->title}</p>";
+                                echo "<p>{$posts_arr[$i]->content}</p>";
+                                echo "<p><strong>Author:</strong> {$posts_arr[$i]->author}</p></div>";				
+                                $i++;
+                            }
+                            echo "</div>";
+                        } else {
+                            echo "<h1>No posts with the ". $_GET["columns"] . " of \"" . $_GET["query"] . "\"</h1>";
+                        }
+                    }
+                ?>
+            </div>
+        </div>
       <!-- about section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
