@@ -114,7 +114,7 @@ $sql_query = "SELECT * FROM posts";
                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="viewposts.php">View Posts</a>
+                           <a class="nav-link" href="viewposts_formatted.php">View Posts</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="createpost_formatted.php">Make Post</a>
@@ -132,7 +132,7 @@ $sql_query = "SELECT * FROM posts";
                   <ul>
                      <li class="active"><a href="index.html">Home</a></li>
                      <li><a href="about.html">About</a></li>
-                     <li><a href="viewposts.php">View Posts</a></li>
+                     <li><a href="viewposts_formatted.php">View Posts</a></li>
                      <li><a href="createpost_formatted.php">Make Post</a></li>
                      <li><a href="contact.html">Contact us</a></li>
                   </ul>

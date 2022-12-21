@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      </style>
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +31,29 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+      <style>
+        form > * {
+            display: block;
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        form > textarea {
+            resize: none;
+            height: 5em;
+        }
+
+        form > input[type="submit"] {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        form {
+            text-align: center;
+            width: 100%;
+        }
+    </style>
    </head>
    <body>
       <!-- header section start -->
@@ -52,13 +74,13 @@
                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="viewposts_formatted.php">View Posts</a>
+                           <a class="nav-link" href="viewposts_formatted.php">View Posts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="createpost_formatted.php">Make Post</a>
-                        </li>
+                           <a class="nav-link" href="createpost_formatted.php">Make Post</a>
+                        </li> 
                         <li class="nav-item">
-                           <a class="nav-link " href="blog.html">Blog</a>
+                           <a class="nav-link" href="createpost.php">Make Post</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="contact.html">Contact</a>
@@ -71,70 +93,40 @@
                <!-- <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div> -->
                <div class="menu_main">
                   <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="viewposts_formatted.php">View Posts</a></li>
-                    <li><a href="createpost_formatted.php">Make Post</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
+                     <li class="active"><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="viewposts_formatted.php">View Posts</a></li>
+                     <li><a href="createpost_formatted.php">Make Post</a></li>
+                     <li><a href="contact.html">Contact us</a></li>
                   </ul>
                </div>
             </div>
          </div>
       </div>
       <!-- header section end -->
-      <!-- about section start -->
-      
-      <!-- Sriram Natarajan -->
-      <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <h1 class="about_taital">Sriram Natarajan</h1>
-                     <p class="about_text">Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself. Sriram, introduce yourself</p>
-                  </div>
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
+        <div class="container">
+          <h1 class="contact_taital">Make a Post</h1>
+          <div class="email_text">
+            <form action="createp-post.php" method="POST">
+               <div class="form-group">
+                  <input type="text" class="email-bt" placeholder="Title" name="title">
                </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img src="images/sriramPortrait.jpg" width="700" height="700"></div>
+               <div class="form-group">
+                  <textarea class="massage-bt" placeholder="Content" rows="5" id="comment" name="content"></textarea>
                </div>
-            </div>
-         </div>
+               <div class="form-group">
+                  <input type="text" class="email-bt" placeholder="Author" name="author">
+               </div>
+               <div class="send_btn">
+                  <input type="submit" value="Submit">
+               </div>
+            </form>
+          </div>
+        </div>
       </div>
-
-      <!-- Rishabh Athreya -->
-      <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <h1 class="about_taital">Rishabh Athreya</h1>
-                     <p class="about_text">Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself. Rishabh, introduce yourself.</p>
-                  </div>
-               </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img src="images/rishabhPortrait.jpg" width="700" height="700"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <!-- Dayallen Ragunath -->
-      <div class="about_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <h1 class="about_taital">Dayallen Ragunathan</h1>
-                     <p class="about_text">I am a highly motivated individual with an interest in coding. I have always been fascinated by the power of technology and how it can be used to solve problems and make a positive impact in the world. I am constantly learning and staying up-to-date with the latest technologies. In my free time, I enjoy learning about coding to enhance my skills and knowledge. I currently play many sports, but I mostly play soccer. Overall, I am excited about the endless possibilities that a career in coding has to offer and am committed to excelling in this field.</p>
-                  </div>
-               </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img src="images/dayallenPortrait.jpeg" width="800" height="800"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- about section end -->
+      <!-- contact section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
@@ -146,7 +138,7 @@
                <div class="call_text"><img src="images/call-icon.png"></div>
                <div class="call_text"><a href="#">Call +01 1234567890</a></div>
                <div class="call_text"><img src="images/mail-icon.png"></div>
-               <div class="call_text"><a href="#">socialissues@gmail.com</a></div>
+               <div class="call_text"><a href="#">demo@gmail.com</a></div>
             </div>
             <div class="social_icon">
                <ul>

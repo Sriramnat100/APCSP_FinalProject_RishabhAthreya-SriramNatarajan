@@ -18,12 +18,14 @@ $conn = connectPostsDB();
     }
 
     $conn->close();
-?>
 
-<button>redirect</button>
+    header("Location: http://localhost:8080/viewposts_formatted.php");
+    exit();
+?>
+<!-- <button>redirect</button>
 
 <script>
     document.querySelector("button").addEventListener("click", (e) => {
         window.location = "/createpost.php";
     })
-</script>
+</script> -->

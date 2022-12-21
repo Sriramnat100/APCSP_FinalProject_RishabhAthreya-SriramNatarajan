@@ -890,6 +890,12 @@ button {
     color: #ffffff;
     background-color: #2b2278;
 }
+
+form > input[type="submit"] {
+    width: 40%;
+    margin: 0 auto;
+}
+
 /* contact section end */
 
 
