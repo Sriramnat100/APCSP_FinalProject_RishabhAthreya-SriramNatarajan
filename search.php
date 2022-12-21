@@ -15,22 +15,16 @@
 			<option value="author">Author</option>
 		</select>
 		<input type="text" name="query" placeholder="Query">
-		<input type="submit" value="Search" disabled>
+		<input type="submit" value="Search">
 	</form>
 </div>
 
 <?php 
 	if(count($_GET) > 0) {			
-		// if(intval($_GET["movie_id"]) == 0) {
-			// 	echo "<div>";
-			// 	echo ""
-			// 	echo "</div>";
-			// }
-
 		include 'dbconnection.php';
 		$connec = connectPostsDB();
 
-		$sql_query = "SELECT * FROM posts WHERE " . $column . "=" . $value;
+		$sql_query = "SELECT * FROM posts WHERE " . $_GET["columns"] . " like '%" . $_GET["query"] . "%'";
 		$res = $connec->query($sql_query);
 
 		$posts_arr[] = (object) array();
@@ -38,13 +32,11 @@
 		if ($res->num_rows > 0) {
 			$i = 0;
 			while($row = $res->fetch_assoc()) {
-				// echo "id: " . $row["movie_id"]. " - title: " . $row["title"] . " - genre: " . $row["genre"]. "<br />";
 				$posts_obj = new stdClass();
 			
-				$posts_obj->id = $row["movie_id"];
+				$posts_obj->id = $row["post_id"];
 				$posts_obj->title = $row["title"];
-				$posts_obj->content = $row["genre"] == $row["genre"];
-				$posts_obj->author = $row["description"] == $row["description"];
+				$posts_obj->author = $row["author"];
 
 				$posts_arr[$i] = $posts_obj;
 
