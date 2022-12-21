@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+
+<style>
+    .posts-cont {
+        width: 100%;
+        height: auto;
+    }
+
+    .posts-cont > div {
+        width: auto;
+        height: auto;
+        background-color: rgb(245, 145, 10);
+        box-shadow: 0.2em 0.2em 0.3em rgb(80, 80, 80);
+        padding: 0.5em;
+        margin: 0.5em;
+        border-radius: 0.7em;
+    }
+
+    .posts-cont h2 {
+        text-align: center;
+    }
+
+    .posts-cont h5 {
+        text-align: center;
+    }
+
+    .posts-cont p {
+        font-size: 12;
+        text-align: center;
+    }
+</style>
+
 <html lang="en">
    <head>
       <!-- basic -->
@@ -9,7 +40,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Posts</title>
+      <title>About</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -38,23 +69,26 @@
          <div class="header_main">
             <div class="mobile_menu">
                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div>
+                  <!-- <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div> -->
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNav">
                      <ul class="navbar-nav">
-                        <li class="nav-item">
+                     <li class="nav-item">
                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="viewposts.php">Posts</a>
+                           <a class="nav-link" href="viewposts_formatted.php">View Posts</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link " href="blog.html">Blog</a>
+                           <a class="nav-link" href="createpost_formatted.php">Make Post</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="search_formatted.php">Search</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link " href="contact.html">Contact</a>
@@ -64,13 +98,14 @@
                </nav>
             </div>
             <div class="container-fluid">
-               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <!-- <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div> -->
                <div class="menu_main">
                   <ul>
-                     <li class="active"><a href="index.html">Home</a></li>
+                  <li class="active"><a href="index.html">Home</a></li>
                      <li><a href="about.html">About</a></li>
-                     <li><a href="viewposts.php">Posts</a></li>
-                     <li><a href="blog.html">Blog</a></li>
+                     <li><a href="viewposts_formatted.php">View Posts</a></li>
+                     <li><a href="createpost_formatted.php">Make Post</a></li>
+                     <li><a href="search_formatted.php">Search</a></li>
                      <li><a href="contact.html">Contact us</a></li>
                   </ul>
                </div>
@@ -78,30 +113,69 @@
          </div>
       </div>
       <!-- header section end -->
-      <!-- services section start -->
-      <div class="services_section layout_padding">
+      <!-- about section start -->
+      <div class="about_section layout_padding">
          <div class="container">
-            <h1 class="services_taital">Posts </h1>
-            <p class="services_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
-            <div class="services_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div><img src="images/img-1.png" class="services_img"></div>
-                     <div class="btn_main"><a href="createpost.php">Create a Post</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-2.png" class="services_img"></div>
-                     <div class="btn_main active"><a href="#">Hiking</a></div>
-                  </div>
-                  <div class="col-md-4">
-                     <div><img src="images/img-3.png" class="services_img"></div>
-                     <div class="btn_main"><a href="#">Camping</a></div>
-                  </div>
-               </div>
-            </div>
+            <h1 class="contact_taital">Search for Post</h1>
+               <!-- <iframe style='padding-left:35%; padding-top=20%'; src="http://localhost:8080/search.php" style ="border:0px #fff none," name = "Rishabh's Frame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="50px" width="100%" allowfullscreen></iframe> -->
+               <form action="search.php" method="GET" style="padding-left:19%">
+                  <input type="text" name="columns" placeholder="'Author', 'Title', or 'Description'", style="width:300px">
+			         <input type="text" name="query" placeholder="Query", style="width:300px">
+			         <input type="submit" value="Search" style="width: 100px">
+		         </form>
          </div>
-      </div>
-      <!-- services section end -->
+            <div class="posts-cont">
+                <h1 style="text-align: center; padding-top:2%;"><?php $posts=0; echo $posts != 0 ? "" : "No posts available"; ?></h1>
+                <?php 
+                    if(count($_GET) > 0) {			
+                        include 'dbconnection.php';
+                        $connec = connectPostsDB();
+
+                        $sql_query = "SELECT * FROM posts WHERE " . $_GET["columns"] . " like '%" . $_GET["query"] . "%'";
+                        $res = $connec->query($sql_query);
+
+                        $posts_arr[] = (object) array();
+
+                        if ($res->num_rows > 0) {
+                            $i = 0;
+                            while($row = $res->fetch_assoc()) {
+                                $posts_obj = new stdClass();
+                            
+                                $posts_obj->id = $row["post_id"];
+                                $posts_obj->title = $row["title"];
+                                $posts_obj->author = $row["author"];
+
+                                $posts_arr[$i] = $posts_obj;
+
+                                $i++;
+                            }
+                        } else $posts_arr = 0;
+
+                        $connec->close();
+                            
+                        $i = 0;
+
+                        if($posts_arr != 0) {
+                            echo "<h1>Results for posts with the " . $_GET["columns"] . " of \"" . $_GET["query"] . "\"</h1>";
+                            echo "<div class='post-list-container'>";
+                            while($i < count($posts_arr)) {
+                                echo "<div class='post-card'>";
+                                echo "<h2>{$posts_arr[$i]->title}</h2>";
+                                echo "<h3 style=\"display: none\">{$posts_arr[$i]->id}</h3>";
+                                echo "<div><p><strong>Title:</strong> {$posts_arr[$i]->title}</p>";
+                                echo "<p>{$posts_arr[$i]->content}</p>";
+                                echo "<p><strong>Author:</strong> {$posts_arr[$i]->author}</p></div>";				
+                                $i++;
+                            }
+                            echo "</div>";
+                        } else {
+                            echo "<h1>No posts with the ". $_GET["columns"] . " of \"" . $_GET["query"] . "\"</h1>";
+                        }
+                    }
+                ?>
+            </div>
+        </div>
+      <!-- about section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
@@ -113,7 +187,7 @@
                <div class="call_text"><img src="images/call-icon.png"></div>
                <div class="call_text"><a href="#">Call +01 1234567890</a></div>
                <div class="call_text"><img src="images/mail-icon.png"></div>
-               <div class="call_text"><a href="#">demo@gmail.com</a></div>
+               <div class="call_text"><a href="#">postit@gmail.com</a></div>
             </div>
             <div class="social_icon">
                <ul>
